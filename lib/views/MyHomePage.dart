@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
 import 'package:food_application/view_models/MyHomePageViewModel.dart';
+import 'package:food_application/views/WallpapersScreen.dart';
 import 'package:provider/provider.dart';
 
 import 'OnlineFoodServicePage.dart';
@@ -31,9 +31,18 @@ class MyHomePage extends StatelessWidget {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Icon(
-                  Icons.drag_handle,
-                  color: Colors.grey,
+                GestureDetector(
+                  onTap: () {
+                    Navigator.of(context).push(
+                      MaterialPageRoute(
+                        builder: (context) => WallpaperScreen(),
+                      ),
+                    );
+                  },
+                  child: Icon(
+                    Icons.drag_handle,
+                    color: Colors.grey,
+                  ),
                 ),
                 Stack(
                   children: [

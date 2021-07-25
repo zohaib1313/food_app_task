@@ -15,8 +15,8 @@ class OnlineFoodServicePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var myModel =
-        Provider.of<OnlineFoodServiceViewModel>(context, listen: false);
+    // var myModel =
+    //     Provider.of<OnlineFoodServiceViewModel>(context, listen: false);
 
     return SafeArea(
       child: Scaffold(
@@ -102,25 +102,24 @@ class OnlineFoodServicePage extends StatelessWidget {
                     ),
                   ),
                 ),
-
                 ///categories
                 Container(
                   height: 60.h,
                   child: Center(
                     child: ListView.builder(
                       scrollDirection: Axis.horizontal,
-                      itemCount: myModel.listOfBurgerCategories.length,
+                      itemCount: mm.listOfBurgerCategories.length,
                       itemBuilder: (context, index) {
                         return Padding(
                           padding: EdgeInsets.all(12.r),
                           child: Center(
                             child: GestureDetector(
                               onTap: () {
-                                myModel.changeSelectedCategory(index);
+                                mm.changeSelectedCategory(index);
                               },
                               child: Text(
-                                myModel.listOfBurgerCategories[index],
-                                style: myModel.selectedCategory == index
+                                mm.listOfBurgerCategories[index],
+                                style: mm.selectedCategory == index
                                     ? selectedButtonStyle
                                     : unSelectedButtonStyle,
                               ),
@@ -131,7 +130,6 @@ class OnlineFoodServicePage extends StatelessWidget {
                     ),
                   ),
                 ),
-
                 Expanded(
                   flex: 3,
                   child: Container(
@@ -171,7 +169,7 @@ class OnlineFoodServicePage extends StatelessWidget {
                                     Padding(
                                       padding: EdgeInsets.all(8.w),
                                       child: Text(
-                                        "BURGER ${myModel.listOfBurgerCategories[myModel.selectedCategory]} $index",
+                                        "BURGER ${mm.listOfBurgerCategories[mm.selectedCategory]} $index",
                                         style: TextStyle(
                                             fontWeight: FontWeight.bold),
                                       ),
